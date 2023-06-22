@@ -2,18 +2,18 @@ import useGenres from "../hooks/useGenres";
 import { Menu, MenuButton, MenuItem, Button, MenuList } from "@chakra-ui/react";
 
 const GenreList = () => {
-  const { genres } = useGenres();
+  const { data } = useGenres()
   
   return (
     <Menu>
       {({ isOpen }) => (
         <>
           <MenuButton isActive={isOpen} as={Button}>
-            {isOpen ? "Close" : "Open"}
+            {isOpen ? "Close Filter" : "Filter"}
           </MenuButton>
           <MenuList>
-            {genres.map((genre) => (
-              <MenuItem key={genre.id}>{genre.name}</MenuItem>
+            {data.map((data) => (
+              <MenuItem key={data.id}>{data.name}</MenuItem>
             ))}
             <MenuItem onClick={() => alert("Kagebunshin")}>
               Create a Copy
